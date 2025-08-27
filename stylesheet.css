@@ -5,7 +5,7 @@ body {
     background-color: #f0f0f0;
     color: #333;
     /* 背景画像の設定 */
-    background-image: url('background.jpg'); /* アップロードされた画像のファイル名に合わせる */
+    background-image: url('blur_kennsupo.png'); /* アップロードされた画像のファイル名に合わせる */
     background-size: cover; /* 画面全体に画像を拡大・縮小 */
     background-position: center; /* 画像を中央に配置 */
     background-attachment: fixed; /* スクロールしても画像が固定される */
