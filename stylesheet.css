@@ -4,7 +4,7 @@ body {
     margin: 0;
     color: #333;
     /* 背景画像の設定 */
-    background-image: url('blur_kennsupo.jpg');
+    background-image: url('blur_kennsupo.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
