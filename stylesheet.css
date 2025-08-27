@@ -1,17 +1,80 @@
 /* 全体のスタイル設定 */
 body {
-    background-color: #f0f0f0; /* 薄いグレーの背景色 */
-    font-family: sans-serif; /* シンプルなフォント */
-    text-align: center; /* 全体のテキストを中央に配置 */
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f0f0f0; /* 背景色を薄いグレーに */
+    color: #333;
 }
 
-/* ヘッダーのスタイル設定 */
-header {
-    margin-top: 50px; /* 上部に余白を追加 */
+/* ページ最上部のコンテンツ */
+.main-content {
+    height: 100vh; /* ビューポートの高さ全体を使用 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直方向の中央揃え */
+    align-items: center; /* 水平方向の中央揃え */
+    text-align: center;
 }
 
-/* 見出しのスタイル設定 */
+/* 「デリカシーってなんだろう」のスタイル */
 h1 {
-    color: #333; /* 濃いグレーの文字色 */
-    font-size: 2.5em; /* フォントサイズを大きめに設定 */
+    font-size: 5em; /* フォントサイズを非常に大きく */
+    color: #000; /* 黒色 */
+    margin: 0;
+}
+
+/* 「what is delicacy」のスタイル */
+.subtitle {
+    font-size: 1.2em; /* 小さめのフォントサイズ */
+    color: #888; /* グレー */
+    margin-top: 10px;
+}
+
+/* 選手名鑑のセクション */
+.player-list {
+    background-color: #fff; /* 白い背景 */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* 選手名鑑の見出し */
+.player-list h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* 選手カードを並べるグリッドコンテナ */
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* レスポンシブなグリッドレイアウト */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 各選手カードのスタイル */
+.player-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* マウスオーバー時のエフェクト */
+.player-card:hover {
+    transform: translateY(-5px);
+}
+
+.player-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    color: #555;
+}
+
+.player-card p {
+    margin: 0;
+    color: #666;
 }
