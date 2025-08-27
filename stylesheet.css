@@ -2,8 +2,13 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    background-color: #f0f0f0; /* 背景色を薄いグレーに */
+    background-color: #f0f0f0;
     color: #333;
+    /* 背景画像の設定 */
+    background-image: url('background.jpg'); /* アップロードされた画像のファイル名に合わせる */
+    background-size: cover; /* 画面全体に画像を拡大・縮小 */
+    background-position: center; /* 画像を中央に配置 */
+    background-attachment: fixed; /* スクロールしても画像が固定される */
 }
 
 /* ページ最上部のコンテンツ */
@@ -11,30 +16,68 @@ body {
     height: 100vh; /* ビューポートの高さ全体を使用 */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 垂直方向の中央揃え */
-    align-items: center; /* 水平方向の中央揃え */
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.7); /* 背景画像を少し透けさせるために半透明の白を重ねる */
+    padding: 20px;
+    box-sizing: border-box; /* paddingを含めて高さを計算 */
 }
 
 /* 「デリカシーってなんだろう」のスタイル */
 h1 {
-    font-size: 5em; /* フォントサイズを非常に大きく */
-    color: #000; /* 黒色 */
+    font-size: 5em;
+    color: #000;
     margin: 0;
+    /* フェードインアニメーション */
+    opacity: 0; /* 初期状態では非表示 */
+    transform: translateY(-50px); /* 上から少しずらしておく */
+    animation: fadeInFromTop 1s ease-out forwards; /* アニメーション適用 */
 }
 
 /* 「what is delicacy」のスタイル */
 .subtitle {
-    font-size: 1.2em; /* 小さめのフォントサイズ */
-    color: #888; /* グレー */
-    margin-top: 10px;
+    font-family: 'Playfair Display', serif; /* おしゃれなフォント */
+    font-size: 1.8em; /* 少し大きめに */
+    color: #888;
+    margin-top: 20px;
+    overflow: hidden; /* タイピングアニメーションのために必要 */
+    white-space: nowrap; /* テキストを折り返さない */
+    border-right: .15em solid orange; /* カーソルをシミュレート */
+    width: 0; /* 初期状態では幅0 */
+    animation: 
+        typing 2s steps(20, end) forwards 1.5s, /* タイピングアニメーション (h1の後1.5秒遅延) */
+        blink-caret .75s step-end infinite; /* カーソルの点滅 */
 }
+
+/* フェードインアニメーションの定義 */
+@keyframes fadeInFromTop {
+    to {
+        opacity: 1; /* 完全に表示 */
+        transform: translateY(0); /* 元の位置に戻す */
+    }
+}
+
+/* タイピングアニメーションの定義 */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* カーソル点滅アニメーションの定義 */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+
 
 /* 選手名鑑のセクション */
 .player-list {
-    background-color: #fff; /* 白い背景 */
+    background-color: #fff;
     padding: 50px 20px;
     text-align: center;
+    position: relative; /* z-indexが効くように */
+    z-index: 1; /* main-contentの上にくるように */
 }
 
 /* 選手名鑑の見出し */
@@ -47,7 +90,7 @@ h1 {
 /* 選手カードを並べるグリッドコンテナ */
 .player-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* レスポンシブなグリッドレイアウト */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
