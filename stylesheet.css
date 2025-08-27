@@ -1,156 +1,17 @@
- body {
-            background-color: white;
-            margin: 0;
-            font-family: sans-serif;
-            background-image: url("{{ url_for('static', filename='blur_kennsupo.png') }}");
-            background-attachment: scroll;
-            background-size: auto 50%;
-            background-repeat: no-repeat;
-            /* ぼかしと透過をbodyに直接適用 */
-        }
-        @keyframes fadeInAndMoveUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes writingEffect {
-            0% {
-                opacity: 0;
-                clip-path: inset(0 100% 0 0);
-            }
-            100% {
-                opacity: 1;
-                clip-path: inset(0 0% 0 0);
-            }
-        }
-        .main-content {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        h1 {
-            font-size: 5rem;
-            color: black;
-            animation: fadeInAndMoveUp 1.5s ease-out forwards;
-        }
-        .sub-heading {
-            font-family: 'Dancing Script', cursive;
-            font-size: 4rem;
-            color: #555;
-            margin: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            opacity: 0; /* 初期状態で透明に */
-            clip-path: inset(0 100% 0 0); /* 初期状態で文字を隠す */
-            animation: writingEffect 2.5s ease-out 1.5s forwards;
-        }
-        .player-roster {
-            padding: 2rem;
-        }
-        h2 {
-            font-size: 3rem;
-            color: #333;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .player-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-        .player-card {
-            border: 1px solid #ccc;
-            display: flex;
-            align-items: center;
-            padding: 0.5rem;
-            box-sizing: border-box;
-            height: 150px;
-            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-        }
-        .player-info {
-            flex-grow: 1;
-            padding-right: 0.5rem;
-        }
-        .player-number {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 0.2rem;
-        }
-        .player-name-jp {
-            font-size: 1rem;
-            color: #333;
-            margin-bottom: 0.2rem;
-        }
-        .player-name-en {
-            font-size: 0.8rem;
-            color: #777;
-        }
-        .player-image-container {
-            width: 100px;
-            height: 100px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .player-image {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: cover;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        /* メニュー用のCSS */
-        .menu-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        .menu-icon {
-            width: 30px;
-            height: 25px;
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .menu-icon .bar {
-            width: 100%;
-            height: 3px;
-            background-color: #333;
-            transition: 0.4s;
-        }
-        .menu-content {
-            display: none;
-            position: absolute;
-            top: 35px;
-            right: 0;
-            background-color: white;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            min-width: 160px;
-            text-align: center;
-        }
-        .menu-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            white-space: nowrap;
-        }
-        .menu-content a:hover {
-            background-color: #f1f1f1;
-        }
+/* 全体のスタイル設定 */
+body {
+    background-color: #f0f0f0; /* 薄いグレーの背景色 */
+    font-family: sans-serif; /* シンプルなフォント */
+    text-align: center; /* 全体のテキストを中央に配置 */
+}
+
+/* ヘッダーのスタイル設定 */
+header {
+    margin-top: 50px; /* 上部に余白を追加 */
+}
+
+/* 見出しのスタイル設定 */
+h1 {
+    color: #333; /* 濃いグレーの文字色 */
+    font-size: 2.5em; /* フォントサイズを大きめに設定 */
+}
