@@ -47,7 +47,6 @@ h1 {
     width: 0; /* 初期状態では幅0 */
     animation: 
         typing 2s steps(20, end) forwards 1.5s, /* タイピングアニメーション (h1の後1.5秒遅延) */
-        blink-caret .75s step-end infinite; /* カーソルの点滅 */
 }
 
 /* フェードインアニメーションの定義 */
@@ -62,12 +61,6 @@ h1 {
 @keyframes typing {
     from { width: 0 }
     to { width: 100% }
-}
-
-/* カーソル点滅アニメーションの定義 */
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
 }
 
 
