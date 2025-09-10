@@ -4,7 +4,7 @@ body {
     margin: 0;
     color: #333;
     /* 背景画像の設定 */
-    background-image: url('blur_kennsupo.jpg');
+    background-image: url('blur_kennsupo.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -27,8 +27,7 @@ body {
 h1 {
     font-size: 5em;
     color: #fff;
-    /* 文字の縁取りと影 */
-    -webkit-text-stroke: 2px #000; /* Webkitブラウザ用 */
+    -webkit-text-stroke: 2px #000;
     text-stroke: 2px #000;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
     margin: 0;
@@ -40,20 +39,26 @@ h1 {
 
 /* 「what is delicacy」のスタイル */
 .subtitle {
-    /* 筆記体フォントに変更 */
-    font-family: 'Playfair Display', serif; 
-    font-size: 2.2em; /* 少し大きく */
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
     color: #ccc;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
-    /* タイピングアニメーション */
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: .15em solid orange;
-    width: 0;
-    animation: 
-        typing 2s steps(20, end) forwards 1.5s, 
-        blink-caret .75s step-end infinite;
+    
+    /* 筆記体アニメーションのための設定 */
+    border-right: none; /* 前回のタイピングアニメーションのカーソルを削除 */
+    overflow: hidden; /* アニメーションの初期状態を隠す */
+    animation: typing-effect 2s steps(20, end) forwards 1.5s;
+}
+
+/* 筆記体風アニメーションの定義 */
+@keyframes typing-effect {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 /* フェードインアニメーションの定義 */
@@ -62,18 +67,6 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* タイピングアニメーションの定義 */
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-/* カーソル点滅アニメーションの定義 */
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
 }
 
 /* 選手名鑑のセクション */
