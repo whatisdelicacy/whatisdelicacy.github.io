@@ -4,11 +4,11 @@ body {
     margin: 0;
     color: #333;
     /* 背景画像の設定 */
-    background-image: url('blur_kennsupo.png');
+    background-image: url('blur_kennsupo.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-color: #f0f0f0; /* 背景が透けて見えるように少し残す */
+    background-color: #f0f0f0;
 }
 
 /* ページ最上部のコンテンツ */
@@ -26,8 +26,11 @@ body {
 /* 「デリカシーってなんだろう」のスタイル */
 h1 {
     font-size: 5em;
-    color: #fff; /* 背景がはっきり見えるように白に変更 */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字を見やすく */
+    color: #fff;
+    /* 文字の縁取りと影 */
+    -webkit-text-stroke: 2px #000; /* Webkitブラウザ用 */
+    text-stroke: 2px #000;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
     margin: 0;
     /* フェードインアニメーション */
     opacity: 0;
@@ -37,15 +40,20 @@ h1 {
 
 /* 「what is delicacy」のスタイル */
 .subtitle {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8em;
-    color: #ccc; /* 文字を見やすく */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* 文字を見やすく */
+    /* 筆記体フォントに変更 */
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.2em; /* 少し大きく */
+    color: #ccc;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
-    /* 左からスライドインアニメーション */
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: slideInFromLeft 1s ease-out forwards 1.5s; /* h1の後1.5秒遅延 */
+    /* タイピングアニメーション */
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid orange;
+    width: 0;
+    animation: 
+        typing 2s steps(20, end) forwards 1.5s, 
+        blink-caret .75s step-end infinite;
 }
 
 /* フェードインアニメーションの定義 */
@@ -56,12 +64,16 @@ h1 {
     }
 }
 
-/* スライドインアニメーションの定義 */
-@keyframes slideInFromLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+/* タイピングアニメーションの定義 */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* カーソル点滅アニメーションの定義 */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
 }
 
 /* 選手名鑑のセクション */
@@ -91,9 +103,9 @@ h1 {
 
 /* 各選手カードのスタイル */
 .player-card {
-    text-decoration: none; /* リンクの下線を消す */
+    text-decoration: none;
     color: #333;
-    display: block; /* カード全体をリンクにする */
+    display: block;
     background-color: #f9f9f9;
     padding: 20px;
     border: 1px solid #ddd;
@@ -108,9 +120,9 @@ h1 {
 }
 
 .player-card img {
-    width: 100%; /* 画像をカードの幅に合わせる */
+    width: 100%;
     height: auto;
-    border-radius: 4px; /* 画像の角を丸くする */
+    border-radius: 4px;
     margin-bottom: 10px;
 }
 
